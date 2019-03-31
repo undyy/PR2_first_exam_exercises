@@ -29,7 +29,7 @@ Vector<string> strings_ending_with(const Vector<string> &v, string s)
     set<string> uniq;
     uniq.insert(v.begin(), v.end());
     Vector<string> out(uniq.size());
-    copy_if(uniq.begin(), uniq.end(), back_inserter(out), [=](const auto &o){ return o.size() > s.size() && o.substr(o.size() - s.size()) == s; });
+    copy_if(uniq.begin(), uniq.end(), back_inserter(out), [=](const auto &o){ return o.size() >= s.size() && o.substr(o.size() - s.size()) == s; });
     return out;
 }
 
